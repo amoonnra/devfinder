@@ -1,0 +1,73 @@
+@import-normalize;
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+}
+
+:root {
+   --main-color: #0079ff;
+   --main-color-hover: #60abff;
+
+   --white: #fff;
+
+   --gray-50: #f6f8ff;
+   --gray-100: #697c9a;
+   --gray-200: #4b6a9b;
+   --gray-300: #2b3442;
+   --gray-400: #1e2a47;
+   --gray-500: #141d2f;
+
+   --error-color: #f74646;
+
+   --shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+}
+
+@media (max-width: 767px) {
+   :root {
+      font-size: 15px;
+   }
+}
+
+body {
+   font-family: "Space Mono", monospace;
+   font-weight: 400;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background-color: var(--gray-50);
+}
+
+body[data-theme="dark"] {
+   background-color: var(--gray-500);
+   --blink-grafient: var(--gray-500) 0%, #2a4b64 18%, var(--gray-500) 33%;
+}
+body[data-theme="light"] {
+   --blink-grafient: #eeeeee 0%, #dddddd 18%, #eeeeee 33%;
+}
+
+a {
+   font-family: "Space Mono", monospace;
+}
+
+.loader {
+   animation-duration: 1s;
+   animation-fill-mode: forwards;
+   animation-iteration-count: infinite;
+   animation-name: placeHolderShimmer;
+   animation-timing-function: linear;
+   background: #f6f7f8;
+   background: linear-gradient(to right, var(--blink-grafient));
+   background-size: 100vw 100vw;
+   position: relative;
+
+   width: 100%;
+   border-radius: 5px;
+}
+@keyframes placeHolderShimmer {
+   0% {
+      background-position: -50vw -50vw;
+   }
+   100% {
+      background-position: 50vw 50vw;
+   }
+}
